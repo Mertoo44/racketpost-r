@@ -66,7 +66,6 @@
 (define main-panel (new vertical-panel% [parent main-frame] [alignment '(center center)] [spacing 20]))
 (define status-msg (new message% [parent main-panel] [label "Sistem Beklemede..."] [font (make-object font% 12 'default)]))
 
-;; --- RESİMLİ VE BÜYÜK YAZILI HATIRLATMA ---
 (define (trigger-reminder-with-image)
   (define random-img-num (+ 1 (random 3))) 
   (define img-path (format "img/~a.png" random-img-num))
@@ -78,7 +77,6 @@
                    [width 400]     ;; Pencereyi biraz genişlettik
                    [height 450]))  ;; Pencereyi biraz uzattık
   
-  ;; --- BURASI GÜNCELLENDİ: YAZI BÜYÜTÜLDÜ ---
   (new message% [parent dlg] 
        [label "Uzun süredir çalışıyorsun.\nLütfen şu hareketi yap:"]
        [font (make-object font% 16 'default 'normal 'bold)]) ;; 16 punto ve Kalın
