@@ -4,9 +4,7 @@
 (require db)
 (require racket/draw)
 
-;; ---------------------------------------------------------
-;; 1. VERİTABANI AYARLARI
-;; ---------------------------------------------------------
+
 (define db-path "posture_data.sqlite")
 (define db-conn
   (sqlite3-connect #:database db-path #:mode 'create))
@@ -61,7 +59,7 @@
 ;; 3. GÖRSEL VE ARAYÜZ
 ;; ---------------------------------------------------------
 
-;; Ana Pencere
+
 (define main-frame (new frame% [label "Postür Asistanı"] [width 400] [height 300]))
 (define main-panel (new vertical-panel% [parent main-frame] [alignment '(center center)] [spacing 20]))
 (define status-msg (new message% [parent main-panel] [label "Sistem Beklemede..."] [font (make-object font% 12 'default)]))
@@ -74,12 +72,12 @@
   (define dlg (new dialog% 
                    [label "Mola Zamanı!"]
                    [parent main-frame]
-                   [width 400]     ;; Pencereyi biraz genişlettik
-                   [height 450]))  ;; Pencereyi biraz uzattık
+                   [width 400]     
+                   [height 450]))  
   
   (new message% [parent dlg] 
        [label "Uzun süredir çalışıyorsun.\nLütfen şu hareketi yap:"]
-       [font (make-object font% 16 'default 'normal 'bold)]) ;; 16 punto ve Kalın
+       [font (make-object font% 16 'default 'normal 'bold)]) 
   
   ;; Resmi yükle
   (if (file-exists? img-path)
@@ -92,7 +90,7 @@
   (define btn-panel (new horizontal-panel% 
                          [parent dlg]
                          [alignment '(center center)]
-                         [spacing 40])) ;; Butonların arasını açtık
+                         [spacing 40])) 
   
   (new button% [parent btn-panel] [label "Yaptım"]
        [min-width 80]
